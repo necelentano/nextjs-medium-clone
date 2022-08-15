@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import PortableText from "react-portable-text"
+
 import Header from '../components/Header'
 
 import { sanityClient, urlFor } from '../sanity'
