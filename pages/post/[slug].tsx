@@ -19,7 +19,6 @@ interface Props {
 }
 
 const Post = ({ post }: Props) => {
-  console.log({ post });
   const [submitted, setSubmitted] = useState(false);
   const {
     register,
@@ -28,18 +27,15 @@ const Post = ({ post }: Props) => {
   } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log({ data });
     fetch("/api/createComment", {
       method: "POST",
       body: JSON.stringify(data),
     })
       .then(() => {
-        console.log(data);
         setSubmitted(true);
       })
       .catch((error) => {
         setSubmitted(false);
-        console.log(error);
       });
   };
 
